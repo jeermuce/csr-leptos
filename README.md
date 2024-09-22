@@ -2,23 +2,27 @@
 
 ## prerequisites
 
+### toolchain
+
 `rustup toolchain install nightly`
 
 `rustup default nightly`
 
+### wasm target
+
 `rustup target add wasm32-unknown-unknown`
 
+### trunk
 
-`cargo install trunk` 
+`cargo install trunk`
 
-or 
+or
 
-`cargo binstall trunk` 
+`cargo binstall trunk`
 
 if you don't have cargo-binstall and want to use it
 
 `cargo install cargo-binstall`
-
 
 ## run it with csr using trunk
 
@@ -26,7 +30,4 @@ if you don't have cargo-binstall and want to use it
 
 ## utilities
 
-https://github.com/leptos-rs/awesome-leptos -- TODO: Check thoroughly, truck load of great stuff
-
-
-
+[awesome-leptos](https://github.com/leptos-rs/awesome-leptos) -- TODO: Check thoroughly, truck load of great stuff

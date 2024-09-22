@@ -5,7 +5,7 @@ fn main() {
 
     leptos::mount_to_body(|| {
         view! {
-            <div>
+            <div class="bg-red-400 h-screen">
                 <h1>"Hello, World!"</h1>
                 <p>"This is a simple example of a Leptos app."</p>
             </div>

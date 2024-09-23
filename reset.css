@@ -13,8 +13,7 @@
     border: none;
     max-width: 100%;
     transition: all 100ms ease-in-out;
-    /*this one is for debugging*/
-    outline: 1px solid red;
+
 }
 
 img,

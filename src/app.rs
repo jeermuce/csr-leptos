@@ -34,7 +34,7 @@ pub(crate) fn Search() -> impl leptos::IntoView {
                 class="rounded-full flex-1 placeholder:text-start px-2"
                 placeholder="buscar..."
             />
-            <button class="size-6 absolute right-0 rounded-full items-center hover:outline-8 hover:outline-red-400 justify-center flex">
+            <button class="size-6 absolute right-0 rounded-full items-center hover:outline justify-center flex">
                 <div class="flex items-center over scale-50">
 
                     <svg

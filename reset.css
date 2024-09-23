@@ -1,0 +1,63 @@
+*,
+*::before,
+*::after,
+*::placeholder {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: inherit;
+    min-height: 0;
+    min-width: 0;
+    letter-spacing: inherit;
+    font: inherit;
+    border: none;
+    max-width: 100%;
+    transition: all 100ms ease-in-out;
+    /*this one is for debugging*/
+    outline: 1px solid red;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+}
+
+
+html {
+    color-scheme: dark light;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-wrap: balance;
+}
+
+p,
+li,
+figcaption {
+    max-width: 80ch;
+    word-break: keep-all;
+
+    text-wrap: pretty;
+}
+
+body {
+    background-image: repeating-conic-gradient(from 30deg, #000000 0% 60deg, #29292B 0% 120deg);
+    background-size: 10px 17px;
+    background-color: #29292B;
+    display: flex;
+    flex-flow: column nowrap;
+    min-height: 100vh;
+    font-size: 16px;
+}
+
+main {
+    flex: 1 1 0%;
+}

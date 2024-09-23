@@ -11,7 +11,7 @@ pub(crate) fn App() -> impl leptos::IntoView {
 pub(crate) fn Header() -> impl leptos::IntoView {
     leptos::view! {
         <header class="w-full h-14 flex flex-row items-center justify-center">
-            <nav class="text-white flex flex-row justify-between items-center w-4/5 px-4 h-full descendants:min-h-8 descendants:min-w-8 ">
+            <nav class="text-white flex flex-row justify-between items-center w-4/5 px-4 h-full  ">
                 <a href="/">
                     <h1 class="text-2xl">CSR</h1>
                 </a>
@@ -34,7 +34,7 @@ pub(crate) fn Search() -> impl leptos::IntoView {
                 class="rounded-full flex-1 placeholder:text-start px-2"
                 placeholder="buscar..."
             />
-            <button class="size-6 absolute right-0 rounded-full items-center hover:outline justify-center flex">
+            <button class="h-6 w-6 absolute right-0 rounded-full items-center hover:outline justify-center flex">
                 <div class="flex items-center over scale-50">
 
                     <svg
@@ -43,7 +43,7 @@ pub(crate) fn Search() -> impl leptos::IntoView {
                         viewBox="0 0 24 24"
                         stroke-width="1.5"
                         stroke="currentColor"
-                        class="size-6"
+                        class="w-6 h-6"
                     >
                         <path
                             stroke-linecap="round"
@@ -71,14 +71,14 @@ pub(crate) fn Burger() -> impl leptos::IntoView {
             for="burger"
             class="absolute top-0 left-0 w-full h-full -z-50 peer-checked:invisible"
         />
-        <button class="size-6 rounded-full text-center ">
+        <button class="w-6 h-6 rounded-full text-center ">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="size-6 rounded-full"
+                class="w-6 h-6 rounded-full"
             >
                 <path
                     stroke-linecap="round"

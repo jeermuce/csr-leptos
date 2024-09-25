@@ -12,8 +12,33 @@
     font: inherit;
     border: none;
     max-width: 100%;
-    transition: all 100ms ease-in-out;
+    font-size: clamp(16px, 2vw, 24px);
+    box-decoration-break: clone;
+    -webkit-tap-highlight-color: transparent;
+}
 
+::-webkit-scrollbar {
+    width: 120px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    /* Customize */
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+body {
+    transition: none;
+    background-image: repeating-conic-gradient(from 30deg, #000000 0% 60deg, #29292B 0% 120deg);
+    background-size: 10px 17px;
+    background-color: #29292B;
+    display: flex;
+    flex-flow: column nowrap;
+    min-height: 100vh;
 }
 
 img,
@@ -22,8 +47,16 @@ video,
 canvas,
 svg {
     display: block;
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    width: 100%;
+    vertical-align: middle;
+    font-style: italic;
+    background-repeat: no-repeat;
+    background-size: cover;
+    shape-margin: 0.75rem;
 }
-
 
 html {
     color-scheme: dark light;
@@ -43,20 +76,46 @@ li,
 figcaption {
     max-width: 80ch;
     word-break: keep-all;
-
     text-wrap: pretty;
 }
 
-body {
-    background-image: repeating-conic-gradient(from 30deg, #000000 0% 60deg, #29292B 0% 120deg);
-    background-size: 10px 17px;
-    background-color: #29292B;
-    display: flex;
-    flex-flow: column nowrap;
-    min-height: 100vh;
-    font-size: 16px;
+main {
+    width: 100%;
+    max-width: 1024px;
+    flex: 1 1 0%;
+
 }
 
-main {
-    flex: 1 1 0%;
+button {
+    border-radius: 4px;
+    border: solid 1px black;
+    padding: 2rem;
+    width: fit-content;
+    cursor: pointer;
+}
+
+input:user-invalid {
+    outline: solid 4px red;
+    outline-offset: -4px;
+}
+
+input:user-valid {
+    outline: solid 4px green;
+    outline-offset: -4px;
+}
+
+
+input,
+textarea,
+select,
+button {
+    font-size: 16px;
+    transition: none;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(8rem, 100%), 1fr));
+    gap: 1rem;
+
 }

@@ -20,6 +20,8 @@ jobs:
       - uses: dtolnay/rust-toolchain@nightly
       - uses: Swatinem/rust-cache@v2
       - uses: jetli/trunk-action@v0.4.0
+      - name: remove debug from index.html
+        run: sed -i '/<link data-trunk rel="tailwind-css" href="debug.css" \/>/d' index.html
       - name: Trunk Build
         run: |
           rustup target add wasm32-unknown-unknown

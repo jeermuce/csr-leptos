@@ -1,55 +1,59 @@
-use leptos::SignalUpdate;
+use leptos::{SignalGetUntracked, SignalUpdate, SignalWithUntracked};
 
 #[leptos::component]
 pub(crate) fn App() -> impl leptos::IntoView {
-    let (truth, set_truthy) = leptos::create_signal(false);
-    let (count, set_count) = leptos::create_signal(0);
     leptos::view! {
         <Header />
         <main class="flex flex-col flex-nowrap flex-1 gap-4 p-4 mx-auto bg-green-300">
-            <div class="flex flex-col justify-center items-center">
-                <div class="flex flex-row flex-nowrap gap-3 justify-between items-center">
-                    <h1 class="text-2xl font-black w-fit">sh: {truth}</h1>
-                    <h1 class="text-2xl font-black w-fit">re: {move || truth}</h1>
-                    <h1 class="text-2xl font-black w-fit">nr: {truth()}</h1>
-                </div>
-                <button on:mousedown=move |_| {
-                    set_truthy(!truth());
-                }>swap</button>
-            </div>
-            <div class="flex flex-col justify-center items-center">
-                <div class="flex flex-row flex-nowrap gap-3 justify-between items-center">
-                    <h1 class="text-2xl font-black w-fit">sh: {count}</h1>
-                    <h1 class="text-2xl font-black w-fit">re: {move || count}</h1>
-                    <h1 class="text-2xl font-black w-fit">nr: {count()}</h1>
-                </div>
-                <div class="flex flex-row gap-3">
-                    <button
-                        class="w-16 h-fit"
-                        on:mousedown=move |_| {
-                            set_count.update(|count| *count += 1);
-                        }
-                    >
-                        {"+"}
-                    </button>
-                    <button
-                        class="w-16 h-fit"
-                        on:mousedown=move |_| {
-                            set_count.update(|count| *count -= 1);
-                        }
-                    >
-                        {"-"}
-                    </button>
-                </div>
-            </div>
-
-            <div class="flex flex-row flex-wrap w-fit h-fit"></div>
+            <Signals_Reactive_TrackeVSUntracked />
             <CardGrid />
         </main>
         <Footer />
     }
 }
 
+#[leptos::component]
+pub(crate) fn Signals_Reactive_TrackeVSUntracked() -> impl leptos::IntoView {
+    let (truth, set_truthy) = leptos::create_signal(false);
+    let (count, set_count) = leptos::create_signal(0);
+    leptos::view! {
+        <div class="flex flex-col justify-center items-center">
+            <div class="flex flex-row flex-nowrap gap-3 justify-between items-center">
+                <h1 class="text-2xl font-black w-fit">sh: {truth}</h1>
+                <h1 class="text-2xl font-black w-fit">re: {move || truth}</h1>
+                <h1 class="text-2xl font-black w-fit">nr: {truth.get_untracked()}</h1>
+            </div>
+            <button on:mousedown=move |_| {
+                set_truthy(!truth());
+            }>swap</button>
+        </div>
+        <div class="flex flex-col justify-center items-center">
+            <div class="flex flex-row flex-nowrap gap-3 justify-between items-center">
+                <h1 class="text-2xl font-black w-fit">sh: {count}</h1>
+                <h1 class="text-2xl font-black w-fit">re: {move || count}</h1>
+                <h1 class="text-2xl font-black w-fit">nr: {count.get_untracked()}</h1>
+            </div>
+            <div class="flex flex-row gap-3">
+                <button
+                    class="w-16 h-fit"
+                    on:mousedown=move |_| {
+                        set_count.update(|count| *count += 1);
+                    }
+                >
+                    {"+"}
+                </button>
+                <button
+                    class="w-16 h-fit"
+                    on:mousedown=move |_| {
+                        set_count.update(|count| *count -= 1);
+                    }
+                >
+                    {"-"}
+                </button>
+            </div>
+        </div>
+    }
+}
 #[leptos::component]
 pub(crate) fn CardGrid() -> impl leptos::IntoView {
     leptos::view! {

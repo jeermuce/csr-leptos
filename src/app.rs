@@ -115,7 +115,7 @@ pub(crate) fn Search() -> impl leptos::IntoView {
                 placeholder="buscar..."
             />
 
-            <button class="flex absolute right-0 justify-center items-center rounded-full search-button aspect-square">
+            <button class="flex hover:bg-gray-600/80 absolute right-0 justify-center items-center rounded-full search-button aspect-square">
 
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -139,37 +139,32 @@ pub(crate) fn Search() -> impl leptos::IntoView {
 #[leptos::component]
 pub(crate) fn Burger() -> impl leptos::IntoView {
     leptos::view! {
-        <input
-            type="checkbox"
-            name="Burger"
-            id="burger"
-            class="hidden checked:scale-150 peer/invisible"
-        />
-        <label
-            for="burger"
-            class="absolute top-0 left-0 w-full h-full -z-50 peer-checked:invisible"
-        />
-        <button
-            class="flex justify-center items-center rounded-full search-button aspect-square"
-            // this button should open an alert saying Ive been clicked
-            onclick="alert('Ive been clicked')"
-        >
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="w-6 h-6 rounded-full"
-            >
-                <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                />
-            </svg>
+        <details class="relative hover:bg-gray-600/80 rounded-full  w-fit overflow-visible" open>
+            <summary class="flex rounded-full items-center p-2 cursor-pointer">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-6 h-6"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                    />
+                </svg>
+            </summary>
 
-        </button>
-        <menu class="hidden relative flex-row justify-center items-center"></menu>
+            <ul class="absolute right-0 overflow-clip bg-black mt-2 min-w-fit   border border-gray-200 rounded-md shadow-lg">
+                <li class="px-4 cursor-pointer py-2 hover:bg-gray-600">Home</li>
+                <li class="px-4 cursor-pointer py-2 hover:bg-gray-600">Home</li>
+                <li class="px-4 cursor-pointer py-2 hover:bg-gray-600">Home</li>
+                <li class="px-4 cursor-pointer py-2 hover:bg-gray-600">Home</li>
+                <li class="px-4 cursor-pointer py-2 hover:bg-gray-600">Home</li>
+
+            </ul>
+        </details>
     }
 }

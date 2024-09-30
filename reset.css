@@ -88,6 +88,19 @@ main {
 
 }
 
+summary {
+    list-style: none;
+
+    &::-webkit-details-marker {
+        display: none;
+    }
+
+    cursor: pointer;
+}
+
+details {
+    cursor: pointer;
+}
 
 button {
     border-radius: 4px;

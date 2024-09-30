@@ -18,17 +18,19 @@
 }
 
 ::-webkit-scrollbar {
-    width: 120px;
+    width: 10px;
+    background-color: rgba(173, 53, 53, 0.489);
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: transparent;
+
     /* Customize */
-    border-radius: 10px;
+    border-radius: 0px;
 }
 
 ::-webkit-scrollbar-track {
-    background: transparent;
+    background: black;
 }
 
 body {
@@ -85,6 +87,7 @@ main {
     flex: 1 1 0%;
 
 }
+
 
 button {
     border-radius: 4px;

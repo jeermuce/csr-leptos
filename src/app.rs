@@ -57,7 +57,7 @@ pub(crate) fn Signals_Reactive_TrackeVSUntracked() -> impl leptos::IntoView {
 #[leptos::component]
 pub(crate) fn CardGrid() -> impl leptos::IntoView {
     leptos::view! {
-        <div class="grid grid-cols-[repeat(auto-fill,minmax(8rem,1fr))] gap-4">
+        <div class="columns-[300px]">
             <Card />
             <Card />
             <Card />
@@ -73,7 +73,7 @@ pub(crate) fn CardGrid() -> impl leptos::IntoView {
 
 #[leptos::component]
 pub(crate) fn Card() -> impl leptos::IntoView {
-    leptos::view! { <img src="https://picsum.photos/200/300" alt="image" /> }
+    leptos::view! { <img src="https://picsum.photos/200/300" alt="image" class="w-full mb-4" /> }
 }
 
 #[leptos::component]

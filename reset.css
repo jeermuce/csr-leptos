@@ -2,6 +2,8 @@
 *::before,
 *::after,
 *::placeholder {
+
+
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -21,6 +23,7 @@
     width: 10px;
     background-color: rgba(173, 53, 53, 0.489);
 }
+
 
 ::-webkit-scrollbar-thumb {
     background-color: transparent;
@@ -62,6 +65,7 @@ svg {
 
 html {
     color-scheme: dark light;
+    scroll-behavior: smooth;
 }
 
 h1,
@@ -101,6 +105,11 @@ summary {
 details {
     cursor: pointer;
 }
+
+.mirror {
+    -webkit-box-reflect: below 0 linear-gradient(transparent, #fff5);
+}
+
 
 button {
     border-radius: 4px;

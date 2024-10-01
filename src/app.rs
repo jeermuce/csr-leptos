@@ -1,9 +1,9 @@
-use leptos::{SignalGetUntracked, SignalUpdate, SignalWithUntracked};
+use leptos::{SignalGetUntracked, SignalUpdate};
 
 #[leptos::component]
 pub(crate) fn App() -> impl leptos::IntoView {
     leptos::view! {
-        <Header />
+        <Header menu_loc=true />
         <main class="flex flex-col flex-nowrap flex-1 gap-4 p-4 mx-auto bg-green-300">
             <Signals_Reactive_TrackeVSUntracked />
             <CardGrid />
@@ -73,11 +73,11 @@ pub(crate) fn CardGrid() -> impl leptos::IntoView {
 
 #[leptos::component]
 pub(crate) fn Card() -> impl leptos::IntoView {
-    leptos::view! { <img src="https://picsum.photos/200/300" alt="image" class="w-full mb-4" /> }
+    leptos::view! { <img src="https://picsum.photos/200/300" alt="image" class="w-full mb-4 mirror" /> }
 }
 
 #[leptos::component]
-pub(crate) fn Header() -> impl leptos::IntoView {
+pub(crate) fn Header(menu_loc: bool) -> impl leptos::IntoView {
     leptos::view! {
         <header class="flex flex-row justify-center items-center w-full h-14 bg-black">
             <nav class="flex flex-row justify-between items-center px-4 w-full max-w-screen-lg h-full text-white">
@@ -86,7 +86,15 @@ pub(crate) fn Header() -> impl leptos::IntoView {
                 </a>
 
                 <Search />
-                <Burger />
+                <ul class="hidden rounded-lg overflow-clip items-center justify-center md:flex flex-row ">
+
+                    <li class="hover:bg-gray-600 cursor-pointer p-2">Home</li>
+                    <li class="hover:bg-gray-600 cursor-pointer p-2">Home</li>
+                    <li class="hover:bg-gray-600 cursor-pointer p-2">Home</li>
+                    <li class="hover:bg-gray-600 cursor-pointer p-2">Home</li>
+
+                </ul>
+                <Burger loc=menu_loc />
             </nav>
         </header>
     }
@@ -96,7 +104,7 @@ pub(crate) fn Header() -> impl leptos::IntoView {
 pub(crate) fn Footer() -> impl leptos::IntoView {
     leptos::view! {
         <footer class="flex flex-row justify-center items-center w-full h-auto bg-white">
-            <Header />
+            <Header menu_loc=false />
         </footer>
     }
 }
@@ -115,7 +123,7 @@ pub(crate) fn Search() -> impl leptos::IntoView {
                 placeholder="buscar..."
             />
 
-            <button class="flex hover:bg-gray-600/80 absolute right-0 justify-center items-center rounded-full search-button aspect-square">
+            <button class="flex border-none  hover:bg-gray-600/80 absolute right-0 justify-center items-center rounded-full search-button aspect-square">
 
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -135,12 +143,18 @@ pub(crate) fn Search() -> impl leptos::IntoView {
         </div>
     }
 }
-
 #[leptos::component]
-pub(crate) fn Burger() -> impl leptos::IntoView {
+pub(crate) fn Burger(loc: bool) -> impl leptos::IntoView {
+    let class_of_ul: &str;
+    if loc {
+        class_of_ul = "z-50 absolute right-0 top-full overflow-clip bg-black my-2 min-w-fit border border-gray-200 rounded-md shadow-lg";
+    } else {
+        class_of_ul = "z-50 absolute right-0 bottom-full overflow-clip bg-black my-2 min-w-fit border border-gray-200 rounded-md shadow-lg";
+    }
+
     leptos::view! {
-        <details class="relative hover:bg-gray-600/80 rounded-full  w-fit overflow-visible" open>
-            <summary class="flex rounded-full items-center p-2 cursor-pointer">
+        <details class="relative md:hidden bg-red-500 rounded-full w-fit overflow-visible">
+            <summary class="flex  hover:bg-gray-600/80 rounded-full items-center p-2 cursor-pointer">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -157,13 +171,12 @@ pub(crate) fn Burger() -> impl leptos::IntoView {
                 </svg>
             </summary>
 
-            <ul class="absolute right-0 overflow-clip bg-black mt-2 min-w-fit   border border-gray-200 rounded-md shadow-lg">
+            <ul class=class_of_ul>
+                <li class="px-4 cursor-pointer py-2 hover:bg-gray-600">{loc}</li>
                 <li class="px-4 cursor-pointer py-2 hover:bg-gray-600">Home</li>
                 <li class="px-4 cursor-pointer py-2 hover:bg-gray-600">Home</li>
                 <li class="px-4 cursor-pointer py-2 hover:bg-gray-600">Home</li>
                 <li class="px-4 cursor-pointer py-2 hover:bg-gray-600">Home</li>
-                <li class="px-4 cursor-pointer py-2 hover:bg-gray-600">Home</li>
-
             </ul>
         </details>
     }
